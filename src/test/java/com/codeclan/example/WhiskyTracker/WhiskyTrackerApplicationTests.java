@@ -36,6 +36,12 @@ public class WhiskyTrackerApplicationTests {
 	}
 
 	@Test
+	public void canFindWhiskiesByAgeAndDistilleryId(){
+		List<Whisky> foundWhiskies = whiskyRepository.findAllByDistilleryIdAndAge(2L, 12);
+		assertEquals("The Rosebank 12 - Flora and Fona", foundWhiskies.get(0).getName());
+	}
+
+	@Test
 	public void canFindWhiskiesByAgeAndDistilleryName(){
 		List<Whisky> foundWhiskies = whiskyRepository.findAllByDistilleryNameAndAge("Rosebank", 12);
 		assertEquals("The Rosebank 12 - Flora and Fona", foundWhiskies.get(0).getName());
